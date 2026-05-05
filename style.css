@@ -41,9 +41,16 @@ html.light .btn-primary:hover { background: #313131; border-color: #313131; }
 
 /* ── Reset ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Paint the bg on html so the colour fills the entire scrollable area on
+     iOS Safari — without this, scrolling past body's height reveals the
+     browser default and the page looks half-themed when toggling. */
+  background: var(--color-bg);
+  transition: background-color 0.2s ease;
+}
 body {
+  min-height: 100%;
   font-family: var(--font);
   background: var(--color-bg);
   color: var(--color-light-2);
@@ -260,6 +267,7 @@ html.light .site-nav::before {
 
 /* ── Theme Toggle (inside nav) ───────────────────────────── */
 .theme-toggle {
+  position: relative;
   width: 20px;
   height: 20px;
   padding: 0;
@@ -275,6 +283,12 @@ html.light .site-nav::before {
 }
 .theme-toggle:hover { color: var(--color-light-1); }
 .theme-toggle svg   { width: 20px; height: 20px; flex-shrink: 0; }
+/* Invisible 32×32 tap target for mobile (visual stays 20×20, layout unaffected) */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
 
 .theme-toggle .icon-moon             { display: none;  }
 html.light .theme-toggle .icon-sun  { display: none;  }
@@ -1175,6 +1189,22 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
   transition: opacity 0.15s ease;
 }
 .email-tooltip-wrapper:hover .email-tooltip { opacity: 1; }
+/* Touch devices have no hover; hide the tooltip entirely so it can't overflow */
+@media (hover: none) {
+  .email-tooltip { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   REDUCED MOTION (a11y)
+══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE

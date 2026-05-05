@@ -362,10 +362,10 @@ const HOME_SPEC = {
       expected: 'I lead design at Xoxoday',
     },
     {
-      name: 'Work intro — I am leading design',
+      name: 'Work intro — I lead design + focus on the following areas',
       type: 'text-contains',
       selector: '.work-intro',
-      expected: 'I am leading design across this ecosystem',
+      expected: 'I lead design across this ecosystem with focus on the following areas:',
     },
     {
       name: 'AI Workflows label (capital W)',

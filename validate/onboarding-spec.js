@@ -376,11 +376,16 @@ const ONBOARDING_SPEC = {
       expected: '18px',
     },
     {
-      name: 'View Case Study link is underlined',
-      type: 'style',
-      selector: '.project-card-btn',
-      property: 'textDecorationLine',
-      expected: 'underline',
+      name: 'Project card arrow icon exists',
+      type: 'exists',
+      selector: '.project-card-arrow',
+      expected: 'found',
+    },
+    {
+      name: 'Project card is an anchor (whole-card link)',
+      type: 'exists',
+      selector: 'a.project-card[href]',
+      expected: 'found',
     },
 
     // ── FOOTER ───────────────────────────────────────────────

@@ -276,18 +276,16 @@ const HOME_SPEC = {
       expected: '18px',
     },
     {
-      name: 'Project card btn (View Case Study) font-size',
-      type: 'style',
-      selector: '.project-card-btn',
-      property: 'fontSize',
-      expected: '14px',
+      name: 'Project card arrow icon exists',
+      type: 'exists',
+      selector: '.project-card-arrow',
+      expected: 'found',
     },
     {
-      name: 'Project card btn underlined',
-      type: 'style',
-      selector: '.project-card-btn',
-      property: 'textDecorationLine',
-      expected: 'underline',
+      name: 'Project card is an anchor (whole-card link)',
+      type: 'exists',
+      selector: 'a.project-card[href]',
+      expected: 'found',
     },
 
     // ── PRINCIPLES ───────────────────────────────────────────

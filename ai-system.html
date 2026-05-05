@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Driven Product Development System — Anupam Bhowmick</title>
+  <meta name="description" content="Case study: AI-Driven Product Development System designed by Anupam Bhowmick." />
+  <link rel="stylesheet" href="style.css" />
+  <script>if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light')}</script>
+</head>
+<body>
+
+  <div id="loading-screen" class="loading-screen"></div>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true">
+    <div class="resume-modal-inner">
+      <div class="resume-modal-header">
+        <span class="resume-modal-title">Resume — Anupam Bhowmick</span>
+        <div class="resume-modal-actions">
+          <a href="Resume_2026.pdf" download class="resume-modal-download">Download PDF</a>
+          <button class="resume-modal-close" id="resume-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe src="Resume_2026.pdf" title="Resume PDF" loading="lazy"></iframe>
+      <div class="resume-mobile-fallback">
+        <p class="ds-body" style="text-align:center;">PDF preview isn't available on this device.</p>
+        <a href="Resume_2026.pdf" download class="btn btn-primary">Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">Home</a>
+      <button class="nav-link" id="resume-trigger">Resume</button>
+    </div>
+    <div class="nav-right">
+      <div class="email-tooltip-wrapper">
+        <button class="nav-link email-copy">Get in Touch</button>
+        <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="1.5" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="10" y2="18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1.5" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="10" x2="18.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="4" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14.24" y1="14.24" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="14.24" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="5.76" y1="14.24" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.5 10.66A7.5 7.5 0 1 1 9.34 2.5 5.83 5.83 0 0 0 17.5 10.66z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="content">
+      <div class="project-main">
+
+        <!-- ── Hero ── -->
+        <div class="project-hero">
+          <div class="project-hero-text">
+            <h1 class="project-hero-title">AI-Driven Product Development System</h1>
+            <p class="project-hero-desc">Building a unified design and engineering foundation that enables teams to design, build, and ship using AI, improving development speed and quality.</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/AI image 1.png" alt="AI-driven product development system — hero overview showing Figma, Storybook, Claude Code, and Xoxoday dashboard" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Problem ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Problem</h2>
+          <div class="cs-body">
+            <p>AI was becoming a strategic priority to accelerate product development and reduce engineering effort.</p>
+            <p>But our systems were not ready for it. Xoxoday operates multiple products across independent teams, each with its own design systems and frontend patterns. This led to:</p>
+            <ul>
+              <li>Duplicate components and repeated frontend effort</li>
+              <li>Inconsistent product quality across platforms</li>
+              <li>High maintenance and slower development cycles</li>
+              <li>No shared structure for AI to operate on</li>
+            </ul>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/AI image 2.png" alt="Three separate design systems across Plum, Empuls, and Xoxoday with no shared foundation" />
+            </div>
+            <p class="cs-img-caption">Independent systems. Inconsistent products. Repeated effort.</p>
+          </div>
+          <div class="cs-body">
+            <p><span class="cs-link">AI outputs were isolated, non-reusable, and inconsistent across teams.</span></p>
+            <p>Without a unified foundation, teams would adopt AI in silos, leading to more inconsistency and duplication and no scalable way to build or reuse AI-driven outputs across products.</p>
+          </div>
+        </div>
+
+        <!-- ── Role ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Role</h2>
+          <div class="cs-body">
+            <p>I am leading this as the primary driver, defining the system strategy across design and engineering.</p>
+            <ul>
+              <li>Driving org-level alignment across teams</li>
+              <li>Defining what gets standardised vs flexible</li>
+              <li>Establishing system structure, rules, and governance</li>
+              <li>Partnering with leadership to position this as a foundational shift</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Strategy and Direction ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Strategy and Direction</h2>
+          <div class="cs-body">
+            <p>We reframed the problem. <span class="cs-link">AI is only as effective as the system it operates on</span>. To make AI reliable, we focused on three decisions:</p>
+          </div>
+          <ul class="cs-impact-list">
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Build a shared base, not forced standardisation</strong>
+              Standardised tokens and core components across products and allowed product-level flexibility for complex patterns. This enabled adoption without blocking teams.
+            </li>
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Connect design directly to code</strong>
+              Unified design system across Figma and code and aligned tokens, components, properties and behaviours. Design stopped being a reference. It became the source.
+            </li>
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Enable AI to operate on systems, not screens</strong>
+              We structured the system so AI could understand components instead of pixels, reuse patterns instead of recreating them, and generate outputs within defined constraints.
+            </li>
+          </ul>
+          <div class="cs-body">
+            <p>AI moved from generating UI to building within a system.</p>
+          </div>
+        </div>
+
+        <!-- ── Execution ── -->
+        <div class="project-section cs-execution">
+          <h2 class="project-section-heading">Execution</h2>
+
+          <!-- 1. Unifying the Design System -->
+          <div class="cs-subsection">
+            <h2 class="cs-section-heading">Unifying the Design System</h2>
+            <div class="cs-body">
+              <p>We audited all product libraries and identified shared patterns. This led to:</p>
+              <ul>
+                <li>A shared base library (tokens + core components)</li>
+                <li>Clear separation of base vs product-specific layers</li>
+                <li>UI consistency in all products</li>
+              </ul>
+              <p>This created a consistent system layer across products.</p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 3.png" alt="One shared library — typography, primitive, and semantic tokens in the Org Design System" />
+              </div>
+              <p class="cs-img-caption">One system. Shared foundation. Scalable across products.</p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 4.png" alt="Component system — buttons, chips, calendars, text fields, switches, quantity selectors" />
+              </div>
+              <p class="cs-img-caption">One component system. Consistent, reusable across products.</p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 5.png" alt="Shared components driving consistent brand across Xoxoday, Empuls, and Plum products" />
+              </div>
+              <p class="cs-img-caption">Shared components driving consistent brand and experience across products</p>
+            </div>
+          </div>
+
+          <!-- 2. Building the Code System -->
+          <div class="cs-subsection">
+            <h2 class="cs-section-heading">Building the Code System (AI-assisted)</h2>
+            <div class="cs-body">
+              <p>With limited engineering bandwidth, we used <span class="cs-link">Claude Code</span> to translate system components into production-ready code. We structured the system so AI could reliably generate outputs:</p>
+              <ul>
+                <li>Tokens mapped 1:1 across design and code</li>
+                <li>Component definitions included states, variants, and behaviour</li>
+                <li>Storybook served as the system of truth for implementation</li>
+              </ul>
+              <p><span class="cs-link">AI was not generating random code. It was generating system-compliant code.</span></p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 6.png" alt="Figma design system sidebar alongside Accordion component documentation in Storybook" />
+              </div>
+              <p class="cs-img-caption">Components and tokens were mapped 1:1 across design and code</p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 7.png" alt="Claude Code terminal generating table component alongside users table in Storybook" />
+              </div>
+              <p class="cs-img-caption">Claude Code translated structured components into production-ready code</p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 8.png" alt="Three Claude Code sessions showing multi-step AI-assisted component and page generation" />
+              </div>
+              <p class="cs-img-caption">System context, rules, and constraints so AI could generate consistent, reusable outputs</p>
+            </div>
+          </div>
+
+          <!-- 3. Creating an AI Validation Layer -->
+          <div class="cs-subsection">
+            <h2 class="cs-section-heading">Creating an AI Validation Layer</h2>
+            <div class="cs-body">
+              <p>Initial outputs exposed key gaps:</p>
+              <ul>
+                <li>Visually correct but not functional</li>
+                <li>Missing states and variants</li>
+                <li>Misaligned with real product constraints</li>
+              </ul>
+              <p>We introduced a validation layer that ensures:</p>
+              <ul>
+                <li>Visual parity with design</li>
+                <li>Full coverage of states and variants</li>
+                <li>Functional correctness across use cases</li>
+                <li>Compatibility with the codebase</li>
+              </ul>
+              <p><span class="cs-link">AI outputs became predictable and production-ready.</span></p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 9.png" alt="Prompt template markdown alongside a 13-point component audit checklist" />
+              </div>
+              <p class="cs-img-caption">AI outputs were validated against a 13-point audit system before reaching production</p>
+            </div>
+          </div>
+
+          <!-- 4. Establishing Governance -->
+          <div class="cs-subsection">
+            <h2 class="cs-section-heading">Establishing Governance</h2>
+            <div class="cs-body">
+              <p>As adoption grew, maintaining consistency across teams became critical. We introduced a governance layer to guide system usage and evolution:</p>
+              <ul>
+                <li>Clear rules for component usage and contribution</li>
+                <li>Lightweight documentation and rulebooks</li>
+                <li>Regular alignment with teams</li>
+                <li>Review mechanisms to maintain system integrity</li>
+              </ul>
+              <p><span class="cs-link">This ensured consistency as adoption increased.</span></p>
+            </div>
+            <div class="cs-img-wrap">
+              <div class="cs-panel-full">
+                <img src="images/AI image 10.png" alt="Design system team rulebook markdown alongside Accordion component documentation" />
+              </div>
+              <p class="cs-img-caption">Clear rules, documentation, and reviews enabling consistent system adoption</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Impact ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Impact</h2>
+          <div class="cs-body">
+            <p>There are early signals that this system is working and strengthening with adoption:</p>
+          </div>
+          <ul class="cs-impact-list">
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Shift from duplication to shared systems</strong>
+              Teams are reusing components instead of rebuilding across products, reducing duplicate frontend effort (~30–40%).
+            </li>
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Faster, system-driven development</strong>
+              Teams are building using predefined structures instead of starting from scratch, with more predictable and faster development workflows.
+            </li>
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">AI outputs becoming reusable and reliable</strong>
+              Structured components and rules allow AI-generated outputs to scale across teams, moving from isolated outputs to system-level reuse.
+            </li>
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Improved cross-product consistency</strong>
+              Shared components are aligning previously fragmented experiences.
+            </li>
+            <li class="cs-impact-item">
+              <strong class="cs-impact-heading">Stronger control over quality and evolution</strong>
+              Governance and system rules are shaping how products are built.
+            </li>
+          </ul>
+          <div class="cs-body">
+            <p>This system is in active rollout. Full impact metrics are being tracked as adoption expands.</p>
+          </div>
+        </div>
+
+        <!-- ── Key Moment ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Key Moment</h2>
+          <div class="cs-body">
+            <p>The shift became real when <span class="cs-link">we generated a production-ready page using Claude Code</span>, built entirely on system components, and pushed it to staging.</p>
+            <ul>
+              <li>No manual frontend build from scratch</li>
+              <li>No deviation from system rules</li>
+              <li>Fully aligned with design and code standards</li>
+            </ul>
+            <p>This marked the transition from AI-assisted work to AI-driven building.</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/AI image 11.png" alt="Claude Code terminal alongside the Xoxoday Send Physical Reward Cards page pushed to staging" />
+            </div>
+            <p class="cs-img-caption">AI-generated production page built using system components and pushed directly to staging</p>
+          </div>
+        </div>
+
+        <!-- ── Defining the AI Workflow ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Defining the AI Workflow</h2>
+          <div class="cs-workflow-box">
+            <p class="cs-workflow-line"><span class="cs-workflow-label">Before :&nbsp;</span><span class="cs-workflow-flow">Design → Handoff → Engineering → Build → Iterate</span></p>
+            <p class="cs-workflow-line"><span class="cs-workflow-label">After :&nbsp;</span><span class="cs-workflow-flow">Design system → AI-generated code → Staging → Iterate → Production</span></p>
+          </div>
+          <div class="cs-body">
+            <p>We were shifting from handoff to system-driven building. Teams now could:</p>
+            <ul>
+              <li>Build pages directly using system components</li>
+              <li>Generate code using AI within defined constraints</li>
+              <li>Iterate on real builds instead of static designs</li>
+            </ul>
+            <p><span class="cs-link">Design and development started happening in the same layer.</span></p>
+          </div>
+        </div>
+
+        <!-- ── What's Next ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">What's Next</h2>
+          <ul class="cs-body" style="padding-left:1.2em;list-style:disc;">
+            <li>Scaling adoption across all product teams</li>
+            <li>Expanding system coverage for complex use cases</li>
+            <li>Strengthening AI reliability through better constraints and validation</li>
+            <li>Enabling designers to ship production-ready UI independently</li>
+          </ul>
+        </div>
+
+        <!-- ── Summary ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Summary</h2>
+          <div class="cs-body">
+            <p>This work is redefining how products are built. By unifying design systems and structuring them for AI, we are:</p>
+            <ul>
+              <li>Moving from fragmented execution to system-driven development</li>
+              <li>Enabling AI to generate reliable, reusable outputs</li>
+              <li>Bringing design and development closer to production</li>
+            </ul>
+            <p><span class="cs-link">This is not just a design system. It is a foundation for AI-driven product development.</span></p>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ── More Projects ── -->
+        <div class="more-projects">
+          <h2 class="ds-h2">More Projects</h2>
+          <div class="project-card project-card--lg">
+            <div class="project-card-content">
+              <p class="project-card-title">Enterprise Payments Management System</p>
+              <p class="project-card-body">Restructured payments by centralising financial workflows into a single system, reducing <span class="text-highlight">finance-related support tickets by ~25–35%</span> and cutting <span class="text-highlight">manual reconciliation effort by ~30%.</span></p>
+            </div>
+            <a href="payments.html" class="project-card-btn">View Case Study</a>
+          </div>
+          <div class="project-card project-card--lg">
+            <div class="project-card-content">
+              <p class="project-card-title">Onboarding Re-Architecture</p>
+              <p class="project-card-body">Restructured account creation and onboarding by simplifying signup and guiding users to their first reward, reducing <span class="text-highlight">early drop-offs by ~70%</span> and increasing conversion to <span class="text-highlight">paying customers by ~12%.</span></p>
+            </div>
+            <a href="onboarding.html" class="project-card-btn">View Case Study</a>
+          </div>
+        </div>
+
+      </div><!-- /.project-main -->
+
+      <!-- Footer -->
+      <div class="ds-footer-row">
+        <p class="ds-caption">© 2026 Anupam Bhowmick. All rights reserved.</p>
+        <nav class="ds-link-row">
+          <div class="email-tooltip-wrapper">
+            <a href="#" class="ds-link-muted email-copy">Email</a>
+            <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+          </div>
+          <a href="https://linkedin.com/in/anupambhowmick" target="_blank" rel="noopener" class="ds-link-muted">LinkedIn</a>
+        </nav>
+      </div>
+
+    </div><!-- /.content -->
+  </div><!-- /.page -->
+
+  <script src="script.js"></script>
+</body>
+</html>

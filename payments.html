@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise Payments Management System — Anupam Bhowmick</title>
+  <meta name="description" content="Case study: Enterprise Payments Management System designed by Anupam Bhowmick." />
+  <link rel="stylesheet" href="style.css" />
+  <script>if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light')}</script>
+</head>
+<body class="payments">
+
+  <div id="loading-screen" class="loading-screen"></div>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
+    <div class="resume-modal-inner">
+      <div class="resume-modal-header">
+        <span class="resume-modal-title">Resume — Anupam Bhowmick</span>
+        <div class="resume-modal-actions">
+          <a href="Resume_2026.pdf" download class="resume-modal-download">Download PDF</a>
+          <button class="resume-modal-close" id="resume-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe src="Resume_2026.pdf" title="Resume PDF" loading="lazy"></iframe>
+      <div class="resume-mobile-fallback">
+        <p class="ds-body" style="text-align:center;">PDF preview isn't available on this device.</p>
+        <a href="Resume_2026.pdf" download class="btn btn-primary">Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">Home</a>
+      <button class="nav-link" id="resume-trigger">Resume</button>
+    </div>
+    <div class="nav-right">
+      <div class="email-tooltip-wrapper">
+        <button class="nav-link email-copy">Get in Touch</button>
+        <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="1.5" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="10" y2="18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1.5" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="10" x2="18.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="4" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14.24" y1="14.24" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="14.24" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="5.76" y1="14.24" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.5 10.66A7.5 7.5 0 1 1 9.34 2.5 5.83 5.83 0 0 0 17.5 10.66z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="content">
+      <div class="project-main">
+
+        <!-- ── Hero ── -->
+        <div class="project-hero">
+          <div class="project-hero-text">
+            <h1 class="project-hero-title">Enterprise Payments Management System</h1>
+            <p class="project-hero-desc">We restructured payments by centralising financial workflows into a single system, reducing finance-related support tickets by ~25–35% and cutting manual reconciliation effort by ~30%.</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/Payments image 1.png" alt="Payments transaction history dashboard with wallet balance and ledger" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Problem ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Problem</h2>
+          <div class="cs-body">
+            <p>As Xoxoday Plum scaled with large enterprise clients, finance teams began actively using the platform to manage high-volume transactions and budgets.</p>
+            <p>However, <span class="cs-link">payment data was scattered</span> across the product, with <span class="cs-link">redemption and financial data mixed together</span>, making it difficult to isolate and manage financial information. This led to -</p>
+            <ul>
+              <li>Delays in financial closing</li>
+              <li>Increased support dependencies</li>
+              <li>Reduced trust in financial transparency</li>
+              <li>Risk of accounting mistakes</li>
+            </ul>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/Payments image 2.png" alt="Reports view with redemption and financial data combined in a single tab" />
+            </div>
+            <p class="cs-img-caption">Before: Redemption and financial data combined in a single Reports tab</p>
+          </div>
+          <div class="cs-body">
+            <p>There was a clear need to create a structured payment experience that gives finance teams clear visibility, audit-ready data, and independent control, without relying on support or engineering.</p>
+          </div>
+        </div>
+
+        <!-- ── Role ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Role</h2>
+          <div class="cs-body">
+            <p>I led the experience design end to end, defining the problem, restructuring the IA, and working closely with Finance, Product, and Engineering.</p>
+          </div>
+        </div>
+
+        <!-- ── Strategy and Direction ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Strategy and Direction</h2>
+          <div class="cs-body">
+            <p>We focused on understanding how finance teams were actually managing payments.</p>
+            <ul>
+              <li>Payment information was scattered, forcing teams to jump between sections</li>
+              <li>Ledger and redemption data were mixed, making reconciliation slow and unclear</li>
+              <li>Teams relied on manual downloads and offline reconciliation, increasing effort and error risk</li>
+            </ul>
+            <p><span class="cs-link">Finance teams lacked a reliable, single source of truth</span>. Our direction was to build a dedicated payments system, a single space for all financial operations.</p>
+          </div>
+        </div>
+
+        <!-- ── Solution ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Solution</h2>
+          <div class="cs-subsections">
+
+            <!-- Clean Report Separation -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Clean Report Separation</h2>
+              <div class="cs-body">
+                <ul>
+                  <li>Redemption reports now show only redemption data</li>
+                  <li>Payment data moved entirely to the Payments section</li>
+                </ul>
+                <p>This removed data overlap, improved reporting clarity, and reduced accounting errors caused by mixed financial and redemption information.</p>
+              </div>
+              <div class="cs-pair">
+                <div class="cs-img-wrap">
+                  <div class="cs-panel-full">
+                    <img src="images/Payments image 3.png" alt="New Payments section with wallet balance and clean ledger" />
+                  </div>
+                  <p class="cs-img-caption">Financial workflows moved to Payments while Reports focus only on redemption data</p>
+                </div>
+                <div class="cs-img-wrap">
+                  <div class="cs-panel-full">
+                    <img src="images/Payments image 4.png" alt="Reports view focused on redemption data only" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wallet Overview -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Wallet Overview</h2>
+              <div class="cs-body">
+                <ul>
+                  <li>Current balance visibility</li>
+                  <li>Recent credit and debit activity</li>
+                  <li>Quick view of outstanding invoices</li>
+                </ul>
+                <p>This centralised financial visibility into one clear space, allowing finance teams to instantly understand fund status without navigating across multiple sections.</p>
+              </div>
+              <div class="cs-img-wrap">
+                <div class="cs-panel-full">
+                  <img src="images/Payments image 5.png" alt="Wallet overview showing available balance, pending funds, and recent activity" />
+                </div>
+                <p class="cs-img-caption">Wallet overview with balance, pending funds, and recent activity</p>
+              </div>
+            </div>
+
+            <!-- Transaction History (Ledger-Only View) -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Transaction History (Ledger-Only View)</h2>
+              <div class="cs-body">
+                <ul>
+                  <li>Clean credit and debit breakdown</li>
+                  <li>Filterable transaction logs</li>
+                  <li>No redemption noise</li>
+                </ul>
+                <p>By separating ledger data from redemption activity, reconciliation became faster, clearer, and less prone to confusion.</p>
+              </div>
+              <div class="cs-img-wrap">
+                <div class="cs-panel-full">
+                  <img src="images/Payments image 6.png" alt="Transaction history showing credit and debit activity with running balance" />
+                </div>
+                <p class="cs-img-caption">Dedicated transaction history with clear financial activity and running balance</p>
+              </div>
+              <div class="cs-pair">
+                <div class="cs-img-wrap">
+                  <div class="cs-panel-full">
+                    <img src="images/Payments image 7.png" alt="Transaction history filtered by date range" />
+                  </div>
+                  <p class="cs-img-caption">Filter transactions by Date Range</p>
+                </div>
+                <div class="cs-img-wrap">
+                  <div class="cs-panel-full">
+                    <img src="images/Payments image 8.png" alt="Transaction history filtered by description" />
+                  </div>
+                  <p class="cs-img-caption">Filter transactions by Description</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Invoice Management -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Invoice Management</h2>
+              <div class="cs-body">
+                <ul>
+                  <li>View open and paid invoices</li>
+                  <li>Make payments directly</li>
+                  <li>Download invoice records</li>
+                </ul>
+                <p>Bringing invoice tracking and payments inside the platform reduced manual coordination and allowed finance teams to complete payment workflows independently.</p>
+              </div>
+              <div class="cs-img-wrap">
+                <div class="cs-panel-full">
+                  <img src="images/Payments image 9.png" alt="Invoice management dashboard with status tracking and pending visibility" />
+                </div>
+                <p class="cs-img-caption">Invoice management with status tracking and pending visibility</p>
+              </div>
+              <div class="cs-pair">
+                <div class="cs-img-wrap">
+                  <div class="cs-panel-full">
+                    <img src="images/Payments image 10.png" alt="Invoice quick actions menu with download and email options" />
+                  </div>
+                  <p class="cs-img-caption">Manage invoices with quick actions</p>
+                </div>
+                <div class="cs-img-wrap">
+                  <div class="cs-panel-full">
+                    <img src="images/Payments image 11.png" alt="Invoice shared via email with payment details" />
+                  </div>
+                  <p class="cs-img-caption">Invoice shared via email with payment details</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Impact ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Impact</h2>
+          <div class="cs-body">
+            <ul>
+              <li>Reduced finance-related support tickets by ~25–35%</li>
+              <li>Cut manual reconciliation effort by ~30%</li>
+              <li>Reduced operational confusion across finance workflows</li>
+              <li>Enabled finance teams to independently manage payments and invoices</li>
+              <li>Improved clarity and control over financial data across the platform</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Summary ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Summary</h2>
+          <div class="cs-body">
+            <p>This project transformed a fragmented payment experience into a structured financial system. By separating financial workflows from reward operations, we improved clarity, reduced risk, and strengthened enterprise trust.</p>
+            <p>It marked a shift from a reward-focused tool to an enterprise-ready platform.</p>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ── More Projects ── -->
+        <div class="more-projects">
+          <h2 class="ds-h2">More Projects</h2>
+          <div class="project-card project-card--lg">
+            <div class="project-card-content">
+              <p class="project-card-title">AI-Driven Product Development System</p>
+              <p class="project-card-body">Building a unified design and engineering foundation that enables teams to design, build, and ship using AI, improving <span class="text-highlight">development speed and quality.</span></p>
+            </div>
+            <a href="ai-system.html" class="project-card-btn">View Case Study</a>
+          </div>
+          <div class="project-card project-card--lg">
+            <div class="project-card-content">
+              <p class="project-card-title">Onboarding Re-Architecture</p>
+              <p class="project-card-body">Restructured account creation and onboarding by simplifying signup and guiding users to their first reward, reducing <span class="text-highlight">early drop-offs by ~70%</span> and increasing conversion to <span class="text-highlight">paying customers by ~12%.</span></p>
+            </div>
+            <a href="onboarding.html" class="project-card-btn">View Case Study</a>
+          </div>
+        </div>
+
+      </div><!-- /.project-main -->
+
+      <!-- Footer -->
+      <div class="ds-footer-row">
+        <p class="ds-caption">© 2026 Anupam Bhowmick. All rights reserved.</p>
+        <nav class="ds-link-row">
+          <div class="email-tooltip-wrapper">
+            <a href="#" class="ds-link-muted email-copy">Email</a>
+            <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+          </div>
+          <a href="https://linkedin.com/in/anupambhowmick" target="_blank" rel="noopener" class="ds-link-muted">LinkedIn</a>
+        </nav>
+      </div>
+
+    </div><!-- /.content -->
+  </div><!-- /.page -->
+
+  <script src="script.js"></script>
+</body>
+</html>

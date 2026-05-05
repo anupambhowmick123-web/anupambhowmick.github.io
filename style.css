@@ -1,0 +1,1195 @@
+/* ============================================================
+   DESIGN SYSTEM — Anupam Bhowmick Portfolio
+   Source: Figma 8GEqwkx0ENInCieGuJe1gp
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=Source+Serif+Pro:wght@400&display=swap');
+
+/* ── Design Tokens — Dark mode (default) ────────────────── */
+:root {
+  --color-bg:           #252525;
+  --color-dark-2:       #313131;
+  --color-dark-3:       #4a4a4a;
+  --color-card-bg:      #282828;
+  --color-before-after: #2b2b2a;
+  --color-video-bg:     #323232;
+  --color-light-1:      #FDFCFA;
+  --color-light-2:      #B7B2AA;
+  --color-light-3:      #6A665F;
+  --color-surface:      rgba(183,178,170,0.04);
+  --nav-height:         48px;
+  --font: 'Sora', sans-serif;
+  --font-body: 'Source Serif Pro', Georgia, serif;
+}
+
+/* ── Light mode overrides ────────────────────────────────── */
+html.light {
+  --color-bg:           #F1EDEA;
+  --color-dark-2:       #E0DBD6;
+  --color-dark-3:       #D0CAC4;
+  --color-card-bg:      #E5E0DA;
+  --color-before-after: #E5E0DA;
+  --color-video-bg:     #C8C3BC;
+  --color-light-1:      #1A1A1A;
+  --color-light-2:      #635D54;
+  --color-light-3:      #948F87;
+  --color-surface:      rgba(37,37,37,0.04);
+}
+
+html.light .btn-primary       { background: #252525; color: #F1EDEA; border-color: #252525; }
+html.light .btn-primary:hover { background: #313131; border-color: #313131; }
+
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-light-2);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Background texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('assets/bg-texture.png');
+  background-size: 1024px 1024px;
+  background-position: top left;
+  mix-blend-mode: darken;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+html.light body::before {
+  mix-blend-mode: multiply;
+  opacity: 0.05;
+}
+
+a      { color: inherit; text-decoration: none; }
+button { background: none; border: none; cursor: pointer; font-family: var(--font); }
+ul { padding-left: 1em;   list-style-position: outside; }
+ol { padding-left: 1.4em; list-style-position: outside; }
+strong { font-weight: 600; color: var(--color-light-1); }
+
+/* ══════════════════════════════════════════════════════════
+   LOADING SCREEN
+══════════════════════════════════════════════════════════ */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: 9999;
+  transition: opacity 0.4s ease;
+  pointer-events: all;
+}
+.loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════════════════════ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: rgba(255,255,255,0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s ease;
+  font-family: var(--font);
+}
+.lightbox-close:hover { color: #fff; }
+.lightbox-close svg   { width: 24px; height: 24px; }
+
+/* ══════════════════════════════════════════════════════════
+   RESUME MODAL
+══════════════════════════════════════════════════════════ */
+.resume-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.resume-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.resume-modal-inner {
+  background: var(--color-bg);
+  width: min(90vw, 840px);
+  height: min(90vh, 920px);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+}
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--color-light-3);
+  flex-shrink: 0;
+}
+.resume-modal-title {
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  color: var(--color-light-1);
+}
+.resume-modal-actions { display: flex; gap: 16px; align-items: center; }
+.resume-modal-download {
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  color: var(--color-light-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+.resume-modal-download:hover { color: var(--color-light-1); }
+.resume-modal-close {
+  color: var(--color-light-2);
+  cursor: pointer;
+  display: flex;
+  transition: color 0.15s ease;
+}
+.resume-modal-close:hover { color: var(--color-light-1); }
+.resume-modal-close svg { width: 20px; height: 20px; }
+.resume-modal iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+}
+.resume-mobile-fallback {
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   STICKY NAV BAR
+══════════════════════════════════════════════════════════ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px max(20px, calc((100% - 680px) / 2));
+  height: var(--nav-height);
+  transition: background-color 0.2s ease;
+}
+/* Texture overlay — matches body::before so nav blends seamlessly */
+.site-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/bg-texture.png');
+  background-size: 1024px 1024px;
+  background-position: top left;
+  mix-blend-mode: darken;
+  opacity: 0.16;
+  pointer-events: none;
+}
+html.light .site-nav::before {
+  mix-blend-mode: multiply;
+  opacity: 0.05;
+}
+
+.nav-left  { display: flex; gap: 40px; align-items: center; }
+.nav-right { display: flex; gap: 24px; align-items: center; }
+
+.nav-link {
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  color: var(--color-light-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  opacity: 0.9;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  padding: 0;
+}
+.nav-link:hover { color: var(--color-light-1); opacity: 1; }
+
+/* ── Theme Toggle (inside nav) ───────────────────────────── */
+.theme-toggle {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-light-2);
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--color-light-1); }
+.theme-toggle svg   { width: 20px; height: 20px; flex-shrink: 0; }
+
+.theme-toggle .icon-moon             { display: none;  }
+html.light .theme-toggle .icon-sun  { display: none;  }
+html.light .theme-toggle .icon-moon { display: block; }
+
+/* ══════════════════════════════════════════════════════════
+   PAGE SHELL
+══════════════════════════════════════════════════════════ */
+.page {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px max(20px, calc((100% - 680px) / 2)) 128px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Homepage — 128px top padding (matches Figma py-128) */
+body.home .page { padding-top: 128px; }
+
+/* Payments — 128px top padding, 92px between sections, 124px to footer */
+body.payments .page { padding-top: 128px; }
+body.payments .project-main { gap: 92px; }
+body.payments .content { gap: 124px; }
+
+/* Onboarding — same outer rhythm as Payments, 72px between Solution subsections */
+body.onboarding .page { padding-top: 128px; }
+body.onboarding .project-main { gap: 92px; }
+body.onboarding .content { gap: 124px; }
+body.onboarding .cs-subsections { gap: 72px; }
+body.onboarding .project-section > .cs-subsections { margin-top: 0; }
+
+.content {
+  width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════════════════════════════ */
+
+/* H1 — 32/48 600 */
+.ds-h1 {
+  font-size: 32px; font-weight: 600; line-height: 48px;
+  color: var(--color-light-1);
+}
+/* H2 — 24/32 600 */
+.ds-h2 {
+  font-size: 24px; font-weight: 600; line-height: 32px;
+  color: var(--color-light-1);
+}
+/* H2 muted */
+.ds-h2-muted {
+  font-size: 24px; font-weight: 600; line-height: 32px;
+  color: var(--color-light-2);
+}
+/* H3 — 20/28 600 */
+.ds-h3 {
+  font-size: 20px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+/* H3 muted */
+.ds-h3-muted {
+  font-size: 20px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-2);
+}
+/* Body — 16/28 400 */
+.ds-body {
+  font-size: 16px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+.ds-body p, .ds-body li { font-size: 16px; line-height: 28px; }
+/* Body Highlight — 16/28 600 */
+.ds-body-highlight {
+  font-size: 16px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-2);
+}
+/* Caption — 12/16 400 */
+.ds-caption {
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-light-2);
+}
+
+/* ══════════════════════════════════════════════════════════
+   LINKS
+══════════════════════════════════════════════════════════ */
+.ds-link {
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  color: var(--color-light-1);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ds-link:hover { opacity: 0.55; }
+
+.ds-link-muted {
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  color: var(--color-light-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ds-link-muted:hover { color: var(--color-light-1); }
+
+.ds-link-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.ds-list { padding-left: 1.2em; }
+.ds-list li { line-height: 28px; margin-bottom: 4px; }
+
+/* Principles bullet list — Source Serif Pro 18/28 */
+.principles-list {
+  list-style: disc;
+  padding-left: 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-light-2);
+}
+.principles-list li { font-size: 18px; line-height: 28px; }
+
+/* ══════════════════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════════════════ */
+.btn-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn svg { flex-shrink: 0; width: 20px; height: 20px; }
+
+.btn-primary {
+  background: var(--color-dark-2);
+  border: 1px solid transparent;
+  color: var(--color-light-1);
+}
+.btn-primary:hover { background: var(--color-dark-3); }
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-dark-2);
+  color: var(--color-light-2);
+}
+.btn-secondary:hover { border-color: var(--color-dark-3); }
+
+/* ══════════════════════════════════════════════════════════
+   TABS  (work.html)
+══════════════════════════════════════════════════════════ */
+.tab-bar-sticky {
+  position: sticky;
+  top: var(--nav-height);
+  background: var(--color-bg);
+  z-index: 10;
+  padding-bottom: 1px;
+  transition: background-color 0.2s ease;
+}
+
+.tab-bar {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1.5px solid var(--color-dark-3);
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8px 24px 8px 8px;
+  font-family: var(--font);
+  font-size: 14px; font-weight: 600; line-height: 22px;
+  color: var(--color-light-3);
+  background: none; border: none;
+  border-bottom: 1.5px solid transparent;
+  margin-bottom: -1.5px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover  { color: var(--color-light-2); }
+.tab-btn.active { color: var(--color-light-2); border-bottom-color: var(--color-light-2); }
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════ */
+.ds-footer-row {
+  border-top: 1px solid var(--color-dark-3);
+  padding-top: 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HOME PAGE — index.html
+══════════════════════════════════════════════════════════ */
+
+/* Main content column — 132px between all sections */
+.bio-main {
+  display: flex; flex-direction: column; gap: 132px;
+}
+
+/* Hero block: identity + bio — gap 32px */
+.bio-identity-group {
+  display: flex; flex-direction: column; gap: 32px;
+}
+
+/* Identity block: name, role, company — 4px gap (matches Figma) */
+.bio-identity {
+  display: flex; flex-direction: column; gap: 4px;
+}
+
+/* Bio text — Source Serif Pro 18/28 (matches Figma body) */
+.bio-text {
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+.bio-text p { margin-bottom: 0; }
+
+/* Inline highlight: light-1 color only (no underline — matches Figma) */
+.text-highlight {
+  color: var(--color-light-1);
+}
+
+/* Section: heading + content — gap 40px */
+.bio-section {
+  display: flex; flex-direction: column; gap: 40px;
+}
+
+/* Work at Xoxoday — flat flex column, gap 44px between all items */
+.work-section {
+  display: flex; flex-direction: column; gap: 44px;
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+/* Intro paragraph — Source Serif Pro 18/28 muted */
+.work-intro {
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+
+/* Two-column focus row: label (160px) + desc (442px) — Figma uses justify-between in 680px column */
+.work-focus-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.work-focus-label {
+  width: 160px;
+  flex-shrink: 0;
+  font-family: var(--font);
+  font-size: 16px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+.work-focus-desc {
+  width: 442px;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+
+/* Projects sub-section: "here are some" + cards (32px gap) */
+.projects-sub {
+  display: flex; flex-direction: column; gap: 32px;
+}
+
+/* Project cards */
+.project-card {
+  background: var(--color-card-bg);
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.project-card--lg { padding: 32px; }
+
+.project-card-content {
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+.project-card-title {
+  font-size: 20px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+
+.project-card-body {
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+
+/* "View Case Study" link on project cards — plain underlined link (matches Figma) */
+.project-card-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font);
+  font-size: 14px; font-weight: 600; line-height: 20px;
+  color: var(--color-light-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0.9;
+  padding: 0;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  align-self: flex-start;
+}
+.project-card-btn:hover {
+  opacity: 1;
+  color: var(--color-light-1);
+}
+
+/* Experience — simple stacked entries */
+.exp-entries {
+  display: flex; flex-direction: column; gap: 22px;
+}
+.exp-entry {
+  display: flex; flex-direction: column; gap: 0;
+}
+.exp-date {
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+.exp-title {
+  font-family: var(--font);
+  font-size: 16px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+
+/* ══════════════════════════════════════════════════════════
+   PROJECT CASE STUDY PAGES
+══════════════════════════════════════════════════════════ */
+
+.project-main {
+  display: flex; flex-direction: column; gap: 72px;
+  width: 100%;
+}
+
+/* Hero */
+.project-hero {
+  display: flex; flex-direction: column; gap: 32px;
+}
+.project-hero-text {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.project-hero-title {
+  font-size: 32px; font-weight: 600; line-height: 48px;
+  color: var(--color-light-1);
+}
+.project-hero-desc {
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+
+/* Project section */
+.project-section {
+  display: flex; flex-direction: column; gap: 32px;
+}
+.project-section-heading {
+  font-size: 20px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+
+/* Project body text */
+.project-body {
+  font-size: 16px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+.project-body p { margin-bottom: 0; }
+.project-body p + p { margin-top: 16px; }
+.project-body strong { font-weight: 600; color: var(--color-light-1); }
+.project-body ul, .project-body ol {
+  padding-left: 1.2em;
+  display: flex; flex-direction: column; gap: 4px;
+  margin-top: 8px;
+}
+.project-body li { line-height: 28px; }
+
+/* Role list */
+.project-role-list {
+  padding-left: 1.2em;
+  display: flex; flex-direction: column; gap: 4px;
+  margin-top: 8px;
+}
+.project-role-list li {
+  font-size: 16px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+
+/* Impact list */
+.project-impact-list {
+  padding-left: 1.2em;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.project-impact-list li {
+  font-size: 16px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+
+/* Execution sub-section */
+.project-subsection {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.project-subsection-heading {
+  font-size: 16px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+
+/* Image placeholder */
+.project-img-placeholder {
+  width: 100%;
+  height: 440px;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-light-3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.project-img-placeholder:hover { border-color: var(--color-light-2); }
+.project-img-placeholder img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-img-placeholder-label {
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-light-3);
+  text-align: center;
+  padding: 20px;
+}
+
+/* More projects section */
+.more-projects {
+  display: flex; flex-direction: column; gap: 44px;
+}
+
+/* Before/after block */
+.before-after-block {
+  background: var(--color-before-after);
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-radius: 8px;
+}
+.before-after-item {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.before-after-label {
+  font-family: var(--font);
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-light-1);
+}
+
+/* Divider */
+.section-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--color-light-3);
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   WORK PAGE — work.html
+══════════════════════════════════════════════════════════ */
+.work-main {
+  display: flex; flex-direction: column; gap: 72px; width: 100%;
+}
+.work-header {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.work-projects-section {
+  display: flex; flex-direction: column; gap: 72px;
+}
+.work-projects-intro {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.project-list {
+  display: flex; flex-direction: column; gap: 112px;
+  padding: 0 4px; width: 100%;
+}
+.project-entry {
+  display: flex; flex-direction: column; gap: 32px;
+}
+.project-title-block {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.project-subsection-old {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.project-img {
+  width: 100%; height: 439px;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-light-3);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.project-img:hover { border-color: var(--color-light-2); }
+.project-entry[id] { scroll-margin-top: calc(var(--nav-height) + 96px); }
+.project-divider {
+  width: 100%; border: none;
+  border-top: 1px solid var(--color-light-3); margin: 0;
+}
+
+/* Video placeholder */
+.video-placeholder {
+  width: 100%; height: 330px;
+  background: var(--color-video-bg);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 4px;
+}
+.video-placeholder-label {
+  font-family: var(--font);
+  font-size: 8px; font-weight: 400; line-height: 16px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
+
+/* ══════════════════════════════════════════════════════════
+   404 PAGE
+══════════════════════════════════════════════════════════ */
+.page-404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+.page-404-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  max-width: 480px;
+}
+.page-404-code {
+  font-size: 80px; font-weight: 600; line-height: 1;
+  color: var(--color-light-3);
+  letter-spacing: -4px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   AI SYSTEM CASE STUDY
+══════════════════════════════════════════════════════════ */
+
+/* Hero subtitle — 14px matching Figma */
+.cs-hero-desc {
+  font-size: 14px; font-weight: 400; line-height: 26px;
+  color: var(--color-light-2);
+}
+
+/* Hero image panel — overlapping screenshots */
+.cs-hero-panel {
+  background: #313131;
+  border-radius: 4px;
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cs-hero-img {
+  position: absolute;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 3px;
+}
+
+/* Case-study body — Source Serif Pro 18/28 (matches Figma Body token) */
+.cs-body {
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 28px;
+  color: var(--color-light-2);
+}
+.cs-body p { margin: 0; }
+.cs-body p + p { margin-top: 24px; }
+.cs-body p + ul,
+.cs-body p + ol { margin-top: 12px; }
+.cs-body ul + p,
+.cs-body ol + p { margin-top: 24px; }
+.cs-body ul,
+.cs-body ol {
+  padding-left: 1.2em;
+  margin: 0;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.cs-body li { line-height: 28px; }
+
+/* Bold sub-heading inside cs-body — Sora SemiBold 16/28 (Figma Body Highlight) */
+.cs-sub-heading {
+  font-family: var(--font);
+  font-size: 16px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+.cs-sub-heading + ul { margin-top: 6px; }
+
+/* Inline highlight — white color only, no underline (matches Figma) */
+.cs-link {
+  color: var(--color-light-1);
+  font-weight: 400;
+}
+
+/* H2-size subsection heading (24px) */
+.cs-section-heading {
+  font-size: 24px; font-weight: 600; line-height: 32px;
+  color: var(--color-light-1);
+}
+
+/* Execution section (AI system) — extra spacing between subsections */
+.cs-execution { gap: 32px; }
+.cs-subsection { display: flex; flex-direction: column; gap: 32px; }
+.cs-execution > .cs-subsection + .cs-subsection { padding-top: 40px; }
+
+/* Payments-style subsections wrapper — 52px rhythm between subsections */
+.cs-subsections {
+  display: flex; flex-direction: column;
+  gap: 52px;
+  width: 100%;
+}
+/* Solution heading → first subsection: parent .project-section gap is 32px; +20 → 52px (matches inter-subsection rhythm) */
+.project-section > .cs-subsections { margin-top: 20px; }
+
+/* Two side-by-side image panels (Payments Clean Report Separation, etc.) */
+.cs-pair {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+.cs-pair > .cs-img-wrap { flex: 1; min-width: 0; }
+
+/* Stacked image panels with single caption at the end (Onboarding Guided / Early Visibility) */
+.cs-img-stack {
+  display: flex; flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Centred workflow flow box — bg surface, white centred Sora text (Onboarding Solution) */
+.cs-flow-box {
+  background: var(--color-dark-2);
+  border-radius: 4px;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.cs-flow-box p {
+  font-family: var(--font);
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-light-1);
+  text-align: center;
+  max-width: 590px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Image wrappers */
+.cs-img-wrap { display: flex; flex-direction: column; gap: 8px; }
+.cs-img-caption {
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-light-2);
+}
+
+/* DS Grid — left tall col + right 3-row col */
+.cs-ds-grid {
+  background: #313131;
+  border-radius: 4px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 37% 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 16px;
+  row-gap: 10px;
+}
+.cs-ds-left {
+  grid-row: 1 / 4;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.cs-ds-left img {
+  flex: 1; width: 100%; min-height: 0;
+  object-fit: cover; border-radius: 2px; display: block;
+}
+.cs-ds-right-cell { display: flex; flex-direction: column; gap: 5px; }
+.cs-ds-right-cell img {
+  width: 100%; object-fit: cover; border-radius: 2px; display: block;
+}
+.cs-ds-label {
+  font-size: 8px; line-height: 12px;
+  color: var(--color-light-1);
+  display: block;
+}
+
+/* Side-by-side image panel */
+.cs-panel-duo {
+  background: #313131;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  height: 244px;
+}
+.cs-panel-duo img {
+  flex: 1; object-fit: cover; object-position: top left;
+  border-radius: 2px;
+}
+
+/* 3-image panel */
+.cs-panel-trio {
+  background: #313131;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  height: 260px;
+}
+.cs-panel-trio img {
+  flex: 1; object-fit: cover; object-position: top left;
+  border-radius: 2px;
+}
+
+/* Single-image panel */
+.cs-panel-solo {
+  background: #313131;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 12px;
+  height: 260px;
+}
+.cs-panel-solo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top left;
+  border-radius: 2px; display: block;
+}
+
+/* Key Moment — left narrow col + right wide col */
+.cs-panel-key {
+  background: #313131;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  height: 284px;
+}
+.cs-panel-key-left { width: 120px; flex-shrink: 0; }
+.cs-panel-key-left img { width: 100%; height: 100%; object-fit: cover; object-position: top left; border-radius: 2px; }
+.cs-panel-key-right { flex: 1; }
+.cs-panel-key-right img { width: 100%; height: 100%; object-fit: cover; object-position: top left; border-radius: 2px; }
+
+/* Full-height image panel — shows full image at natural aspect ratio */
+.cs-panel-full {
+  background: var(--color-dark-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cs-panel-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+/* Before / After workflow box */
+.cs-workflow-box {
+  background: #313131;
+  border-radius: 4px;
+  padding: 28px 44px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.cs-workflow-line {
+  font-size: 14px; line-height: 20px;
+  color: var(--color-light-2);
+}
+.cs-workflow-label { font-weight: 400; }
+.cs-workflow-flow { font-weight: 600; color: var(--color-light-1); }
+
+/* Impact list with bold item headings */
+.cs-impact-list {
+  display: flex; flex-direction: column; gap: 16px;
+  list-style: disc;
+  padding-left: 1.2em;
+}
+.cs-impact-item {
+  font-family: var(--font-body);
+  font-size: 18px; line-height: 28px;
+  color: var(--color-light-2);
+}
+.cs-impact-heading {
+  display: block;
+  font-family: var(--font);
+  font-size: 16px; font-weight: 600; line-height: 28px;
+  color: var(--color-light-1);
+}
+
+/* ══════════════════════════════════════════════════════════
+   EMAIL TOOLTIP
+══════════════════════════════════════════════════════════ */
+.email-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.email-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-light-1);
+  color: var(--color-bg);
+  font-family: var(--font);
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.email-tooltip-wrapper:hover .email-tooltip { opacity: 1; }
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 1280px) {
+  .content   { width: 100%; max-width: 680px; }
+}
+
+@media (max-width: 900px) {
+  .page             { padding-top: 60px; padding-bottom: 100px; }
+  .content          { gap: 120px; }
+  .bio-main         { gap: 80px; }
+  .work-section     { gap: 32px; }
+  .work-main        { gap: 48px; }
+  .project-list     { gap: 72px; }
+  .project-main     { gap: 52px; }
+  .project-img-placeholder { height: 280px; }
+  .work-focus-row   { flex-direction: column; gap: 8px; }
+  .work-focus-label { width: 100%; }
+  .work-focus-desc  { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .site-nav         { height: auto; min-height: 44px; }
+  .nav-left         { gap: 24px; }
+  .nav-right        { gap: 16px; }
+  .page             { padding-top: 48px; padding-bottom: 80px; }
+  .content          { gap: 80px; }
+  .bio-main         { gap: 60px; }
+  .bio-section      { gap: 24px; }
+  .work-section     { gap: 24px; }
+  .project-card     { padding: 20px; }
+  .project-card-title { font-size: 17px; line-height: 24px; }
+  .project-img-placeholder { height: 200px; }
+  .project-main     { gap: 40px; }
+  .project-hero-title { font-size: 26px; line-height: 36px; }
+  .ds-link-row      { gap: 16px; }
+  .ds-footer-row    { flex-direction: column; gap: 20px; }
+  .project-list     { gap: 48px; }
+  .video-placeholder { height: 200px; }
+  .before-after-block { padding: 20px; }
+  .resume-modal     { padding: 12px; }
+  .resume-modal iframe { display: none; }
+  .resume-mobile-fallback { display: flex; }
+  .page-404-code    { font-size: 56px; }
+}

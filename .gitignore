@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Claude Code local settings (contains local paths and permissions)
+.claude/
+
+# Working folder for Figma screenshots downloaded during design pulls
+.figma-tmp/
+
+# Editor folders
+.vscode/
+.idea/

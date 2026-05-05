@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anupam Bhowmick — Senior Product Designer</title>
+  <meta name="description" content="Portfolio of Anupam Bhowmick, Senior Product Designer at Xoxoday, Bengaluru." />
+  <link rel="stylesheet" href="style.css" />
+  <script>if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light')}</script>
+</head>
+<body class="home">
+
+  <!-- Loading screen -->
+  <div id="loading-screen" class="loading-screen"></div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- Resume modal -->
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
+    <div class="resume-modal-inner">
+      <div class="resume-modal-header">
+        <span class="resume-modal-title">Resume — Anupam Bhowmick</span>
+        <div class="resume-modal-actions">
+          <a href="Resume_2026.pdf" download class="resume-modal-download">Download PDF</a>
+          <button class="resume-modal-close" id="resume-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe src="Resume_2026.pdf" title="Resume PDF" loading="lazy"></iframe>
+      <div class="resume-mobile-fallback">
+        <p class="ds-body" style="text-align:center;">PDF preview isn't available on this device.</p>
+        <a href="Resume_2026.pdf" download class="btn btn-primary">Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky nav -->
+  <nav class="site-nav">
+    <div class="nav-left">
+      <a href="#work" class="nav-link">Work</a>
+      <button class="nav-link" id="resume-trigger">Resume</button>
+    </div>
+    <div class="nav-right">
+      <div class="email-tooltip-wrapper">
+        <button class="nav-link email-copy">Get in Touch</button>
+        <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="1.5" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="10" y2="18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1.5" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="10" x2="18.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="4" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14.24" y1="14.24" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="14.24" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="5.76" y1="14.24" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.5 10.66A7.5 7.5 0 1 1 9.34 2.5 5.83 5.83 0 0 0 17.5 10.66z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="content">
+
+      <div class="bio-main">
+
+        <!-- ── Hero: identity + bio ── -->
+        <div class="bio-identity-group">
+
+          <!-- Identity: name / role / company — 4px gap -->
+          <div class="bio-identity">
+            <p class="ds-h1">Anupam Bhowmick</p>
+            <p class="ds-h2-muted">Senior Product Designer</p>
+            <p class="ds-h3-muted">Xoxoday</p>
+          </div>
+
+          <!-- Bio -->
+          <div class="bio-text">
+            <p>Based in Bengaluru with <span class="text-highlight">9 years of experience</span>, I design and scale complex B2B SaaS products, driving end-to-end decisions from strategy to how they are built and shipped.</p>
+            <p>&nbsp;</p>
+            <p><span class="text-highlight">I lead design at Xoxoday</span>, working with founders and teams to shape product direction and drive systems, processes, and design practices at scale across the organisation.</p>
+          </div>
+
+        </div>
+
+        <!-- ── Work at Xoxoday ── -->
+        <div class="work-section" id="work">
+          <p class="ds-h3">Work at Xoxoday</p>
+
+          <p class="work-intro">Xoxoday is a multi-product platform for rewards, incentives, and loyalty, serving 8,000+ enterprises and 65M users globally. I am leading design across this ecosystem, spanning product, systems, and teams.</p>
+
+          <!-- Focus areas — two-column rows (160px label / 442px desc) -->
+          <div class="work-focus-row">
+            <p class="work-focus-label">Design Leadership</p>
+            <p class="work-focus-desc"><span class="text-highlight">Built and led a team of 9–15 designers</span> across product and marketing, hiring, mentoring, and shaping how design operates across teams.</p>
+          </div>
+
+          <div class="work-focus-row">
+            <p class="work-focus-label">Core Product</p>
+            <p class="work-focus-desc">Owned the admin platform end-to-end across rewards, payments, onboarding, and storefront, <span class="text-highlight">shaping product direction</span> with product and engineering.</p>
+          </div>
+
+          <div class="work-focus-row">
+            <p class="work-focus-label">Design System</p>
+            <p class="work-focus-desc"><span class="text-highlight">Sole custodian</span> and architect of the design system for major Xoxoday products - owning tokens, components, patterns, and governance from inception.</p>
+          </div>
+
+          <div class="work-focus-row">
+            <p class="work-focus-label">AI Workflows</p>
+            <p class="work-focus-desc">Leading the shift to <span class="text-highlight">AI-driven product development</span>, enabling teams to move from handoffs to working on production-ready output.</p>
+          </div>
+
+          <div class="work-focus-row">
+            <p class="work-focus-label">Operations</p>
+            <p class="work-focus-desc">Established <span class="text-highlight">governance and team processes</span> across design and engineering including Figma structure, contribution models, and handoff workflows to bring consistency to how teams build and ship.</p>
+          </div>
+
+          <div class="work-focus-row">
+            <p class="work-focus-label">Quality</p>
+            <p class="work-focus-desc">Owned <span class="text-highlight">product and brand consistency</span> across the platform - leading brand unification and ensuring design quality is maintained in production.</p>
+          </div>
+
+          <!-- Projects sub-section: intro + 3 cards (32px gap) -->
+          <div class="projects-sub">
+            <p class="work-intro">Here are some of the projects that shaped the product and teams:</p>
+
+            <div class="project-card">
+              <div class="project-card-content">
+                <p class="project-card-title">AI-Driven Product Development System</p>
+                <p class="project-card-body">Building a unified design and engineering foundation that enables teams to design, build, and ship using AI, improving <span class="text-highlight">development speed and quality.</span></p>
+              </div>
+              <a href="ai-system.html" class="project-card-btn">View Case Study</a>
+            </div>
+
+            <div class="project-card project-card--lg">
+              <div class="project-card-content">
+                <p class="project-card-title">Enterprise Payments Management System</p>
+                <p class="project-card-body">Restructured payments by centralising financial workflows into a single system, reducing <span class="text-highlight">finance-related support tickets by ~25–35%</span> and cutting <span class="text-highlight">manual reconciliation effort by ~30%.</span></p>
+              </div>
+              <a href="payments.html" class="project-card-btn">View Case Study</a>
+            </div>
+
+            <div class="project-card project-card--lg">
+              <div class="project-card-content">
+                <p class="project-card-title">Onboarding Re-Architecture</p>
+                <p class="project-card-body">Restructured account creation and onboarding by simplifying signup and guiding users to their first reward, reducing <span class="text-highlight">early drop-offs by ~70%</span> and increasing conversion to <span class="text-highlight">paying customers by ~12%.</span></p>
+              </div>
+              <a href="onboarding.html" class="project-card-btn">View Case Study</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Principles ── -->
+        <div class="bio-section">
+          <p class="ds-h3">Principles</p>
+          <ul class="ds-body principles-list">
+            <li>Start with the problem, not the solution</li>
+            <li>Clarity over polish</li>
+            <li>Design for systems, not just screens</li>
+            <li>Build quality into the process</li>
+            <li>Good design works across constraints</li>
+            <li>Work as a team</li>
+          </ul>
+        </div>
+
+        <!-- ── Experience ── -->
+        <div class="bio-section">
+          <p class="ds-h3">Experience</p>
+          <div class="exp-entries">
+            <div class="exp-entry">
+              <span class="exp-date">Jan 2019 – Present (~7 years)</span>
+              <span class="exp-title">Senior Product Designer — Xoxoday</span>
+            </div>
+            <div class="exp-entry">
+              <span class="exp-date">Jun 2017 – Dec 2018 (1 yr 7 mos)</span>
+              <span class="exp-title">UX/UI Designer — Gapoon</span>
+            </div>
+            <div class="exp-entry">
+              <span class="exp-date">Mar 2017 – Jun 2017 (3 mos)</span>
+              <span class="exp-title">UX/UI Designer — Algebra Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Education ── -->
+        <div class="bio-section">
+          <p class="ds-h3">Education</p>
+          <div class="exp-entry">
+            <span class="exp-date">2011 – 2015</span>
+            <span class="exp-title">Electronics &amp; Instrumentation (BE)</span>
+            <span class="exp-date">Sathyabama University, Chennai</span>
+          </div>
+        </div>
+
+      </div><!-- /.bio-main -->
+
+      <!-- Footer -->
+      <div class="ds-footer-row">
+        <p class="ds-caption">© 2026 Anupam Bhowmick. All rights reserved.</p>
+        <nav class="ds-link-row">
+          <div class="email-tooltip-wrapper">
+            <a href="#" class="ds-link-muted email-copy">Email</a>
+            <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+          </div>
+          <a href="https://linkedin.com/in/anupambhowmick" target="_blank" rel="noopener" class="ds-link-muted">LinkedIn</a>
+        </nav>
+      </div>
+
+    </div><!-- /.content -->
+  </div><!-- /.page -->
+
+  <script src="script.js"></script>
+</body>
+</html>

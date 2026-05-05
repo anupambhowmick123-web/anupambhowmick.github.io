@@ -1,0 +1,172 @@
+// ── Loading screen ────────────────────────────────────────
+const loadingScreen = document.getElementById('loading-screen');
+if (loadingScreen) {
+  window.addEventListener('load', () => {
+    loadingScreen.classList.add('hidden');
+    setTimeout(() => { loadingScreen.style.display = 'none'; }, 450);
+  });
+  // Fallback: hide after 3s even if load event is slow
+  setTimeout(() => {
+    if (loadingScreen) {
+      loadingScreen.classList.add('hidden');
+      setTimeout(() => { loadingScreen.style.display = 'none'; }, 450);
+    }
+  }, 3000);
+}
+
+// ── Email copy to clipboard ───────────────────────────────
+document.querySelectorAll('.email-copy').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = 'anupambhowmick123@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      const wrapper = link.closest('.email-tooltip-wrapper');
+      const tooltip = wrapper ? wrapper.querySelector('.email-tooltip') : null;
+      if (!tooltip) return;
+      const original = tooltip.textContent;
+      tooltip.textContent = 'Copied!';
+      tooltip.style.opacity = '1';
+      setTimeout(() => {
+        tooltip.textContent = original;
+        tooltip.style.opacity = '';
+      }, 1800);
+    });
+  });
+});
+
+// ── Theme toggle ──────────────────────────────────────────
+const toggleBtn = document.getElementById('theme-toggle');
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
+
+// ── Resume modal ──────────────────────────────────────────
+const resumeModal  = document.getElementById('resume-modal');
+const resumeTrigger = document.getElementById('resume-trigger');
+const resumeClose  = document.getElementById('resume-modal-close');
+
+function openResume() {
+  if (!resumeModal) return;
+  resumeModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeResume() {
+  if (!resumeModal) return;
+  resumeModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+if (resumeTrigger) resumeTrigger.addEventListener('click', openResume);
+if (resumeClose)   resumeClose.addEventListener('click', closeResume);
+if (resumeModal) {
+  resumeModal.addEventListener('click', (e) => {
+    if (e.target === resumeModal) closeResume();
+  });
+}
+
+// ── Lightbox ──────────────────────────────────────────────
+const lightbox     = document.getElementById('lightbox');
+const lightboxImg  = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(src, alt) {
+  if (!lightbox || !lightboxImg) return;
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { if (lightboxImg) lightboxImg.src = ''; }, 200);
+}
+
+// Wire up any real <img> tags inside placeholders
+document.querySelectorAll('.project-img-placeholder[data-lightbox]').forEach(el => {
+  const img = el.querySelector('img');
+  if (img) {
+    el.style.cursor = 'zoom-in';
+    el.addEventListener('click', () => openLightbox(img.src, img.alt));
+  }
+});
+
+// Wire up old-style .project-img divs on work.html
+document.querySelectorAll('.project-img[data-lightbox-src]').forEach(el => {
+  el.addEventListener('click', () => {
+    openLightbox(el.dataset.lightboxSrc, el.dataset.lightboxAlt || '');
+  });
+});
+
+// Wire ALL images inside case study pages to the lightbox
+document.querySelectorAll('.project-main img[src]').forEach(img => {
+  if (!img.src || img.src === window.location.href) return;
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openLightbox(img.src, img.alt || '');
+  });
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightbox) {
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
+  });
+}
+
+// ── Keyboard: Escape closes any open overlay ──────────────
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  closeLightbox();
+  closeResume();
+});
+
+// ── Work page tabs (only if present) ─────────────────────
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabBarSticky = document.querySelector('.tab-bar-sticky');
+if (tabBtns.length > 0) {
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      const section = document.getElementById('project-' + target);
+      if (!section) return;
+
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const stickyHeight = tabBarSticky ? tabBarSticky.offsetHeight : 0;
+      const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 44;
+      window.scrollTo({ top: section.offsetTop - stickyHeight - navHeight - 16, behavior: 'smooth' });
+    });
+  });
+
+  const projectSections = document.querySelectorAll('.project-entry[id]');
+  if (projectSections.length > 0) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id.replace('project-', '');
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        const match = document.querySelector(`.tab-btn[data-tab="${id}"]`);
+        if (match) {
+          match.classList.add('active');
+          match.setAttribute('aria-selected', 'true');
+        }
+      });
+    }, { rootMargin: '0px 0px -70% 0px', threshold: 0 });
+
+    projectSections.forEach(s => io.observe(s));
+  }
+}

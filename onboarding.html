@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onboarding Re-Architecture — Anupam Bhowmick</title>
+  <meta name="description" content="Case study: Onboarding Re-Architecture designed by Anupam Bhowmick." />
+  <link rel="stylesheet" href="style.css" />
+  <script>if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light')}</script>
+</head>
+<body class="onboarding">
+
+  <div id="loading-screen" class="loading-screen"></div>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true" aria-label="Resume viewer">
+    <div class="resume-modal-inner">
+      <div class="resume-modal-header">
+        <span class="resume-modal-title">Resume — Anupam Bhowmick</span>
+        <div class="resume-modal-actions">
+          <a href="Resume_2026.pdf" download class="resume-modal-download">Download PDF</a>
+          <button class="resume-modal-close" id="resume-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe src="Resume_2026.pdf" title="Resume PDF" loading="lazy"></iframe>
+      <div class="resume-mobile-fallback">
+        <p class="ds-body" style="text-align:center;">PDF preview isn't available on this device.</p>
+        <a href="Resume_2026.pdf" download class="btn btn-primary">Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">Home</a>
+      <button class="nav-link" id="resume-trigger">Resume</button>
+    </div>
+    <div class="nav-right">
+      <div class="email-tooltip-wrapper">
+        <button class="nav-link email-copy">Get in Touch</button>
+        <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="1.5" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="10" y2="18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1.5" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="10" x2="18.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="4" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14.24" y1="14.24" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="14.24" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="5.76" y1="14.24" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.5 10.66A7.5 7.5 0 1 1 9.34 2.5 5.83 5.83 0 0 0 17.5 10.66z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="content">
+      <div class="project-main">
+
+        <!-- ── Hero ── -->
+        <div class="project-hero">
+          <div class="project-hero-text">
+            <h1 class="project-hero-title">Onboarding Re-Architecture</h1>
+            <p class="project-hero-desc">We restructured account creation and onboarding by simplifying signup and guiding users to their first reward, reducing early drop-offs by ~70% and increasing conversion to paying customers by ~12%.</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/Onboarding image 1.png" alt="Welcome dashboard with Send Your First Reward and Verify Business Details cards" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Problem ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Problem</h2>
+          <div class="cs-body">
+            <p>Businesses sign up to create an admin account with Xoxoday Plum that allows them to configure, fund, and run their digital reward programs.</p>
+            <p>However, onboarding required <span class="cs-link">too many upfront decisions</span> such as selecting reward use cases, setting up a store, and completing business verification <span class="cs-link">before users could explore the platform</span>. This led to -</p>
+            <ul>
+              <li>High drop-offs between signup and first reward</li>
+              <li>Delays in completing business verification</li>
+              <li>Payment and compliance blockers surfacing late</li>
+              <li>Increased support dependency to complete onboarding</li>
+              <li>Low conversion from signups to paying customers</li>
+            </ul>
+            <p>There was a clear need to create a structured onboarding system that guides users from signup to their first reward, while reducing friction and improving conversion.</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/Onboarding image 2.png" alt="Heavy decision-driven signup with use case selection and rewarding details" />
+            </div>
+            <p class="cs-img-caption">Before: Users had to make multiple setup decisions before accessing the platform</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/Onboarding image 3.png" alt="Send Reward Points blocked due to incomplete business verification" />
+            </div>
+            <p class="cs-img-caption">Before: Sending rewards was blocked due to incomplete business verification</p>
+          </div>
+          <div class="cs-img-wrap">
+            <div class="cs-panel-full">
+              <img src="images/Onboarding image 4.png" alt="Add Funds dashboard with restricted access during onboarding" />
+            </div>
+            <p class="cs-img-caption">Before: Adding funds was restricted, delaying account activation and usage</p>
+          </div>
+        </div>
+
+        <!-- ── Role ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Role</h2>
+          <div class="cs-body">
+            <p>I led the experience design end to end, defining the onboarding strategy, restructuring the journey, and working closely with Product and Engineering to align on activation goals.</p>
+          </div>
+        </div>
+
+        <!-- ── Strategy and Direction ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Strategy and Direction</h2>
+          <div class="cs-body">
+            <p>We focused on understanding how users were moving through onboarding and where they were getting blocked.</p>
+            <ul>
+              <li>Users were asked to make too many decisions upfront, creating cognitive overload</li>
+              <li>Business verification was introduced late, causing unexpected friction</li>
+              <li>Payment setup and compliance requirements appeared only at the point of transaction</li>
+              <li>There was no clear path guiding users to their first reward</li>
+              <li>Users relied on support to guide them through account creation</li>
+            </ul>
+            <p>Users lacked a clear and predictable path to activation. Our direction was to <span class="cs-link">build a guided onboarding system that reduces upfront friction, stages commitment, and leads users step by step toward their first reward.</span></p>
+          </div>
+        </div>
+
+        <!-- ── Solution ── -->
+        <div class="project-section">
+          <div class="cs-subsections">
+
+            <!-- Solution intro + workflow -->
+            <div class="cs-subsection">
+              <h2 class="project-section-heading">Solution</h2>
+              <div class="cs-body">
+                <p>We restructured onboarding around a single goal, <span class="cs-link">help users send their first reward as quickly as possible.</span> Users can proceed with intent, while the system handles dependencies like verification and payment in parallel.</p>
+              </div>
+              <div class="cs-flow-box">
+                <p>Signup&nbsp;&nbsp;→&nbsp;&nbsp;Enter Platform → Set First Reward → Verify Business → Add Funds → Send First Reward</p>
+              </div>
+            </div>
+
+            <!-- Simplified Account Creation -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Simplified Account Creation</h2>
+              <div class="cs-body">
+                <p>Reduced onboarding to only essential inputs, removing early decisions like use cases and store configuration. This allowed users to enter the product faster and start exploring immediately, instead of getting blocked upfront.</p>
+                <p>Shift:</p>
+                <ul>
+                  <li>Before → Heavy, decision-driven signup</li>
+                  <li>After → Lightweight entry with delayed complexity</li>
+                </ul>
+              </div>
+              <div class="cs-img-wrap">
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 5.png" alt="3-step lightweight signup with create account, set password, organisation details" />
+                </div>
+                <p class="cs-img-caption">Reduced onboarding to essential inputs, removing early decision friction</p>
+              </div>
+            </div>
+
+            <!-- Guided First Reward Journey -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Guided First Reward Journey</h2>
+              <div class="cs-body">
+                <p>Defined sending the first reward as the <span class="cs-link">primary activation milestone</span>. Created a structured flow that guided users step by step, with clear next actions at each stage.</p>
+                <p>Key behaviours introduced:</p>
+                <ul>
+                  <li>Users can configure rewards before completing verification</li>
+                  <li>Clear next actions replace open-ended exploration</li>
+                  <li>The system communicates progress at every step</li>
+                </ul>
+                <p>This gave users clarity on what to do and how to progress, reducing early drop-offs and making onboarding feel lighter.</p>
+              </div>
+              <div class="cs-img-stack">
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 6.png" alt="Send Reward Points with reward configuration in the platform" />
+                </div>
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 7.png" alt="Custom email and SMS configuration with marketplace selection and Congrats preview" />
+                </div>
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 8.png" alt="Send First Reward with verify business details and add funds payment summary" />
+                </div>
+                <p class="cs-img-caption">A structured flow guiding users step by step toward sending their first reward</p>
+              </div>
+            </div>
+
+            <!-- Early Visibility of Verification and Payments -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">Early Visibility of Verification and Payments</h2>
+              <div class="cs-body">
+                <p>Moved business <span class="cs-link">verification and payment setup earlier in the journey</span> with clear visibility. Users understood requirements before reaching blockers.</p>
+                <p>This reduced surprises and improved completion rates.</p>
+              </div>
+              <div class="cs-img-stack">
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 9.png" alt="Send First Reward verify business details and add funds with payment summary" />
+                </div>
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 10.png" alt="Reward Queued Successfully popup with verification in progress" />
+                </div>
+                <p class="cs-img-caption">Verification and payments surfaced early to reduce last-minute drop-offs</p>
+              </div>
+            </div>
+
+            <!-- System Behavior (Core Design Decision) -->
+            <div class="cs-subsection">
+              <h2 class="cs-section-heading">System Behaviour (Core Design Decision)</h2>
+              <div class="cs-body">
+                <p>To balance flexibility with business constraints, we introduced a queued reward system:</p>
+                <ul>
+                  <li>Rewards are queued instead of failing</li>
+                  <li>Verification runs in parallel after submission</li>
+                  <li>Users can choose to add funds now or later</li>
+                  <li>Rewards are automatically sent once requirements are met</li>
+                </ul>
+                <p>This allowed users to <span class="cs-link">complete their intent without interruption</span>, while still respecting compliance and payment requirements.</p>
+              </div>
+              <div class="cs-img-wrap">
+                <div class="cs-panel-full">
+                  <img src="images/Onboarding image 11.png" alt="Welcome Alex dashboard with first reward queued and reward campaigns explorer" />
+                </div>
+                <p class="cs-img-caption">Rewards are queued instead of blocked, allowing users to complete actions while the system handles verification</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Impact ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Impact</h2>
+          <div class="cs-body">
+            <ul>
+              <li>Reduced early-stage drop-offs by ~70%</li>
+              <li>Increased conversion of signups into paying customers by ~12%</li>
+              <li>Improved onboarding completion rates and time to first reward by ~20–30%</li>
+              <li>Reduced onboarding-related support tickets by ~25–55%</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Summary ── -->
+        <div class="project-section">
+          <h2 class="project-section-heading">Summary</h2>
+          <div class="cs-body">
+            <p>This project transformed onboarding from a fragmented and confusing journey into a <span class="cs-link">structured, guided system</span>.</p>
+            <p>By simplifying entry, staging commitment, and clearly guiding users toward their first reward, we improved activation and made the platform more conversion-ready at scale.</p>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ── More Projects ── -->
+        <div class="more-projects">
+          <h2 class="ds-h2">More Projects</h2>
+          <div class="project-card project-card--lg">
+            <div class="project-card-content">
+              <p class="project-card-title">AI-Driven Product Development System</p>
+              <p class="project-card-body">Building a unified design and engineering foundation that enables teams to design, build, and ship using AI, improving <span class="text-highlight">development speed and quality.</span></p>
+            </div>
+            <a href="ai-system.html" class="project-card-btn">View Case Study</a>
+          </div>
+          <div class="project-card project-card--lg">
+            <div class="project-card-content">
+              <p class="project-card-title">Enterprise Payments Management System</p>
+              <p class="project-card-body">Restructured payments by centralising financial workflows into a single system, reducing <span class="text-highlight">finance-related support tickets by ~25–35%</span> and cutting <span class="text-highlight">manual reconciliation effort by ~30%.</span></p>
+            </div>
+            <a href="payments.html" class="project-card-btn">View Case Study</a>
+          </div>
+        </div>
+
+      </div><!-- /.project-main -->
+
+      <!-- Footer -->
+      <div class="ds-footer-row">
+        <p class="ds-caption">© 2026 Anupam Bhowmick. All rights reserved.</p>
+        <nav class="ds-link-row">
+          <div class="email-tooltip-wrapper">
+            <a href="#" class="ds-link-muted email-copy">Email</a>
+            <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+          </div>
+          <a href="https://linkedin.com/in/anupambhowmick" target="_blank" rel="noopener" class="ds-link-muted">LinkedIn</a>
+        </nav>
+      </div>
+
+    </div><!-- /.content -->
+  </div><!-- /.page -->
+
+  <script src="script.js"></script>
+</body>
+</html>

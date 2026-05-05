@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Anupam Bhowmick</title>
+  <meta name="description" content="Selected work by Anupam Bhowmick, Senior Product Designer at Xoxoday." />
+  <link rel="stylesheet" href="style.css" />
+  <script>if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light')}</script>
+</head>
+<body>
+
+  <div id="loading-screen" class="loading-screen"></div>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true">
+    <div class="resume-modal-inner">
+      <div class="resume-modal-header">
+        <span class="resume-modal-title">Resume — Anupam Bhowmick</span>
+        <div class="resume-modal-actions">
+          <a href="resume.pdf" download class="resume-modal-download">Download PDF</a>
+          <button class="resume-modal-close" id="resume-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe src="resume.pdf" title="Resume PDF" loading="lazy"></iframe>
+      <div class="resume-mobile-fallback">
+        <p class="ds-body" style="text-align:center;">PDF preview isn't available on this device.</p>
+        <a href="resume.pdf" download class="btn btn-primary">Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">Home</a>
+      <button class="nav-link" id="resume-trigger">Resume</button>
+    </div>
+    <div class="nav-right">
+      <div class="email-tooltip-wrapper">
+        <button class="nav-link email-copy">Get in Touch</button>
+        <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="1.5" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="10" y2="18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1.5" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="10" x2="18.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="4" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14.24" y1="14.24" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="4" x2="14.24" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="5.76" y1="14.24" x2="4" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.5 10.66A7.5 7.5 0 1 1 9.34 2.5 5.83 5.83 0 0 0 17.5 10.66z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="content">
+
+      <!-- ══ MAIN CONTENT — gap 72px between all sections ══ -->
+      <div class="work-main">
+
+        <!-- Header: Go Back + title  (gap 20px) -->
+        <div class="work-header">
+          <a href="index.html" class="ds-link-muted">Go Back</a>
+          <p class="ds-h1">Work in Xoxoday</p>
+        </div>
+
+        <!-- Company intro -->
+        <div class="ds-body">
+          <p>Xoxoday build softwares for companies to run global reward and incentive programs across employees, customers, and partners.</p>
+          <br>
+          <p>I have been working on Plum, one of its core product, that enables businesses to send and manage rewards at scale, while employees, customers, and partners redeem them across a global marketplace of gift cards, merchandise, travel, experiences and more.</p>
+        </div>
+
+        <!-- Responsibilities -->
+        <div class="ds-body">
+          <p>What I have been responsible for</p>
+          <br>
+          <ol class="ds-list">
+            <li>Building and evolving our product design systems.</li>
+            <li>Owning the end to end experience of sending and managing rewards.</li>
+            <li>Mentoring and growing a team of designers.</li>
+            <li>Managing design operations and team workflows.</li>
+          </ol>
+        </div>
+
+        <!-- Projects section: intro + tabs + list  (gap 72px) -->
+        <div class="work-projects-section">
+
+          <!-- Intro text + tab bar  (gap 20px) -->
+          <div class="work-projects-intro">
+
+            <p class="ds-body">Here are some of the work that shaped the product and teams:</p>
+
+          </div><!-- /.work-projects-intro -->
+
+          <!-- Sticky tab bar -->
+          <div class="tab-bar-sticky">
+            <div class="tab-bar" role="tablist">
+              <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="design-system">Design System</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" data-tab="ai-system">AI System</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" data-tab="stores">Stores Configuration</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" data-tab="payments">Payments</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" data-tab="onboarding">Onboarding</button>
+            </div>
+          </div>
+
+          <!-- All projects — always visible, scroll-anchored -->
+          <div class="project-list">
+
+            <!-- ── Project 1: Design System ─────────────────── -->
+            <div id="project-design-system" class="project-entry">
+
+              <div class="project-title-block">
+                <p class="ds-h2">Organisation Level Design System</p>
+                <p class="ds-body">We built a shared design and engineering foundation across products, reducing duplicate effort by 30–40%, enabling consistency across products and improving development speed by 40%.</p>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Problem:</p>
+                <div class="ds-body">
+                  <p>Xoxoday operates multiple products across rewards, loyalty and engagement. As these products scaled independently, each built its own design system and frontend patterns.</p>
+                  <br>
+                  <p>This resulted in duplicated engineering effort, slower time to market, and inconsistent user experiences across products, while increasing maintenance overhead, weakening brand consistency, and making it difficult for teams to build and ship consistently as the organisation scaled.</p>
+                </div>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Solution:</p>
+                <div class="ds-body">
+                  <p>I led the creation of an organisation-level base library that standardised core tokens and components across products in design and code.</p>
+                  <br>
+                  <p>This established a shared foundation that teams could build on. Each product could extend the system for its needs while staying connected to a shared base.</p>
+                  <br>
+                  <p>I worked closely with design and engineering teams across products to drive adoption and ensure consistency at scale.</p>
+                </div>
+              </div>
+
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Results:</p>
+                <ul class="ds-body ds-list">
+                  <li>Reduced duplicate frontend effort across products by ~30–40%</li>
+                  <li>Improved development speed for new features by ~40%</li>
+                  <li>Lowered maintenance overhead by reducing repeated component builds</li>
+                  <li>Enabled teams to build independently while maintaining cross-product consistency</li>
+                  <li>Strengthened alignment between design and engineering systems</li>
+                </ul>
+              </div>
+
+            </div><!-- /#project-design-system -->
+
+            <hr class="project-divider">
+
+            <!-- ── Project 2: AI System ──────────────────────── -->
+            <div id="project-ai-system" class="project-entry">
+
+              <div class="project-title-block">
+                <p class="ds-h2">AI-Powered Product Development System</p>
+                <p class="ds-body">We are integrating AI into the product development workflow using Claude Code to reduce design to development time, improve quality and iteration speed, and move towards build ready outputs.</p>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Problem:</p>
+                <div class="ds-body">
+                  <p>Product development at Xoxoday is relying heavily on manual handoffs. Design intent is getting reinterpreted during implementation, slowing iteration, increasing engineering effort, and creating inconsistencies across products.</p>
+                  <br>
+                  <p>Design systems exist but are not connected to code, so they are failing as a true source of truth. This is limiting AI adoption, as models lack context about components, tokens, and system behaviour.</p>
+                </div>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Solution:</p>
+                <div class="ds-body">
+                  <p>I am leading the shift from a handoff driven workflow to a system driven approach by connecting design directly to production code by using Claude Code primarily.</p>
+                  <br>
+                  <ul class="ds-list">
+                    <li>Building a shared foundation linking tokens, components, and patterns across Figma and code repositories</li>
+                    <li>Enabling system awareness so AI can understand components, states, and constraints</li>
+                    <li>Shifting design from static screens to structured, reusable system definitions</li>
+                    <li>Moving the workflow from sequential handoffs to a shared system used by design, engineering, and AI</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Shift in Design:</p>
+                <div class="ds-body">
+                  <p>Design is no longer about creating screens.</p>
+                  <br>
+                  <ul class="ds-list">
+                    <li>Designers are defining systems using components, states, and logic</li>
+                    <li>Outputs are aligning with production instead of visual intent</li>
+                    <li>Interfaces are being structured so they can be interpreted and generated by AI</li>
+                    <li>Design is moving closer to how products are actually built</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-img"></div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Opportunity:</p>
+                <ul class="ds-body ds-list">
+                  <li>Reducing dependency on engineering for UI development</li>
+                  <li>Improving iteration speed across teams</li>
+                  <li>Increasing consistency across products</li>
+                  <li>Lowering rework by removing design implementation gaps</li>
+                  <li>Moving towards interfaces that can be directly translated into build outputs</li>
+                </ul>
+              </div>
+
+            </div><!-- /#project-ai-system -->
+
+            <hr class="project-divider">
+
+            <!-- ── Project 3: Stores Configuration ──────────── -->
+            <div id="project-stores" class="project-entry">
+
+              <div class="project-title-block">
+                <p class="ds-h2">Enterprise Storefront Configuration System</p>
+                <p class="ds-body">We enabled admins to create and manage their own storefronts by turning backend-heavy configuration into a scalable self-serve system, reducing engineering dependency by ~70–80% and speeding up enterprise launches from days to hours.</p>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Problem:</p>
+                <div class="ds-body">
+                  <p>Admins use the platform to run reward programs, where end users redeem rewards across a large marketplace of gift cards, merchandise, travel, and experiences.</p>
+                  <br>
+                  <p>However, storefronts were fixed and controlled entirely from the backend. Every new client or program required engineering support to configure catalogs, pricing, and promotions.</p>
+                  <br>
+                  <p>This made integration slow, introduced operational overhead, and limited the ability to support different commercial models at scale. Pricing changes required multiple handoffs, setups were error-prone, and engineering became a bottleneck for revenue-driving workflows.</p>
+                </div>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Solution:</p>
+                <div class="ds-body">
+                  <p>I led the design of storefronts as a self-serve configuration system by moving catalog selection, pricing logic, discounts, and merchandising into a structured admin workflow. Admins can now create and manage storefronts through a guided flow that simplifies complex configuration into clear steps, with built-in rules and live previews to ensure accuracy.</p>
+                  <br>
+                  <p>A key decision was to build this as a single flexible configurable system powered by a shared catalog, instead of duplicating storefronts per client.</p>
+                </div>
+              </div>
+
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Results:</p>
+                <ul class="ds-body ds-list">
+                  <li>Reduced engineering dependency for storefront setup by ~70–80%</li>
+                  <li>Enabled new storefront launches in hours instead of days</li>
+                  <li>Improved onboarding speed and reduced operational overhead</li>
+                  <li>Reduced pricing and configuration errors through structured controls</li>
+                  <li>Enabled multiple storefronts to run in parallel from a single system</li>
+                </ul>
+              </div>
+
+            </div><!-- /#project-stores -->
+
+            <hr class="project-divider">
+
+            <!-- ── Project 4: Payments ───────────────────────── -->
+            <div id="project-payments" class="project-entry">
+
+              <div class="project-title-block">
+                <p class="ds-h2">Enterprise Payments Management System</p>
+                <p class="ds-body">We restructured payments by centralising financial workflows into a single system, reducing finance-related support tickets by ~25–35% and cutting manual reconciliation effort by ~30%.</p>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Problem:</p>
+                <div class="ds-body">
+                  <p>Admins use the platform to fund and manage reward programs, while finance teams handle transactions, invoices, and reconciliation.</p>
+                  <br>
+                  <p>However, payment data was scattered across sections and mixed with redemption activity, forcing teams to rely on reports and manual workflows to understand their finances. This resulted in delayed financial closing, increased support dependency, higher accounting risk, and reduced trust from enterprise clients, as finance teams lacked a clear and reliable source of truth.</p>
+                </div>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Solution:</p>
+                <div class="ds-body">
+                  <p>I led the redesign of payments as a dedicated system by centralising balances, ledger data, and invoices into one clear workflow, while separating financial data from redemption reports.</p>
+                  <br>
+                  <p>A key decision was to treat payments as an independent system rather than extending existing reports.</p>
+                </div>
+              </div>
+
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Results:</p>
+                <ul class="ds-body ds-list">
+                  <li>Reduced finance-related support tickets by ~25–35%</li>
+                  <li>Cut manual reconciliation effort by ~30%</li>
+                  <li>Reduced operational confusion across finance workflows</li>
+                  <li>Enabled finance teams to independently manage payments and invoices</li>
+                  <li>Improved clarity and control over financial data across the platform</li>
+                </ul>
+              </div>
+
+            </div><!-- /#project-payments -->
+
+            <hr class="project-divider">
+
+            <!-- ── Project 5: Onboarding ─────────────────────── -->
+            <div id="project-onboarding" class="project-entry">
+
+              <div class="project-title-block">
+                <p class="ds-h2">Plum Onboarding Re-Architecture</p>
+                <p class="ds-body">We restructured account creation and onboarding by simplifying signup and guiding users to their first reward, reducing early drop-offs by ~70% and increasing conversion to paying customers by ~12%.</p>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Problem:</p>
+                <div class="ds-body">
+                  <p>Businesses sign up to create an admin account that allows them to configure, fund, and run their digital reward programs.</p>
+                  <br>
+                  <p>Onboarding required too many upfront decisions such as selecting use cases, setting up a store, and completing business verification before users could explore the platform. Users often discovered compliance and payment blocks while trying to send their first reward, leading to drop-offs, increased support dependency, and fewer accounts converting into paying customers.</p>
+                </div>
+              </div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Solution:</p>
+                <div class="ds-body">
+                  <p>I led the re-architecture of onboarding by simplifying account creation and setup, focusing on guiding users to their first reward.</p>
+                  <br>
+                  <p>Users could enter the platform immediately after signup, explore it first, and experience value before completing setup. They were then guided step by step through business verification, store creation, and funding as they progressed, creating a smoother path to their first reward.</p>
+                </div>
+              </div>
+
+              <!-- Before / After block -->
+              <div class="before-after-block">
+                <div class="before-after-item">
+                  <p class="before-after-label">Before</p>
+                  <div class="video-placeholder">
+                    <span class="video-placeholder-label">Video of login flow before</span>
+                  </div>
+                </div>
+                <div class="before-after-item">
+                  <p class="before-after-label">After</p>
+                  <div class="video-placeholder">
+                    <span class="video-placeholder-label">Video of login flow after</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-img"></div>
+              <div class="project-img"></div>
+
+              <div class="project-subsection">
+                <p class="ds-h3">Results:</p>
+                <ul class="ds-body ds-list">
+                  <li>Reduced early-stage drop-offs by ~70%</li>
+                  <li>Increased conversion of signups into paying customers by ~12%</li>
+                  <li>Improved onboarding completion rates and time to first reward by ~20–30%</li>
+                  <li>Reduced onboarding-related support tickets by ~25–55%</li>
+                </ul>
+              </div>
+
+            </div><!-- /#project-onboarding -->
+
+          </div><!-- /.project-list -->
+
+        </div><!-- /.work-projects-section -->
+
+      </div><!-- /.work-main -->
+
+      <!-- Footer — single row: copyright left, links right -->
+      <div class="ds-footer-row">
+        <p class="ds-caption">© 2026 Anupam Bhowmick. All rights reserved.</p>
+        <nav class="ds-link-row">
+          <div class="email-tooltip-wrapper">
+            <a href="#" class="ds-link-muted email-copy">Email</a>
+            <span class="email-tooltip">anupambhowmick123@gmail.com</span>
+          </div>
+          <a href="https://linkedin.com/in/anupambhowmick" target="_blank" rel="noopener" class="ds-link-muted">Linkedin</a>
+        </nav>
+      </div>
+
+    </div><!-- /.content -->
+  </div><!-- /.page -->
+
+  <script src="script.js"></script>
+</body>
+</html>

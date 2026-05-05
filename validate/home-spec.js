@@ -220,19 +220,31 @@ const HOME_SPEC = {
       expected: '#b7b2aa',
     },
 
-    // ── PROJECTS SUB ─────────────────────────────────────────
+    // ── PROJECTS SECTION ─────────────────────────────────────
     {
-      name: 'Projects sub gap (intro → cards)',
-      type: 'flex-gap',
-      selector: '.projects-sub',
-      expected: '32px',
+      name: 'Projects section exists with #projects anchor',
+      type: 'exists',
+      selector: '.projects-section#projects',
+      expected: 'found',
     },
     {
-      name: 'Project card 1 (AI) padding',
+      name: 'Projects section gap (header → cards)',
+      type: 'flex-gap',
+      selector: '.projects-section',
+      expected: '44px',
+    },
+    {
+      name: 'Projects header gap (h2 → intro)',
+      type: 'flex-gap',
+      selector: '.projects-header',
+      expected: '4px',
+    },
+    {
+      name: 'Project card padding (32 all sides)',
       type: 'style',
       selector: '.bio-main .project-card',
       property: 'padding',
-      expected: '28px',
+      expected: '32px',
     },
     {
       name: 'Project card 1 (AI) bg colour',
@@ -242,17 +254,17 @@ const HOME_SPEC = {
       expected: '#282828',
     },
     {
-      name: 'Project card content gap (title → body)',
+      name: 'Project card content gap (header → body)',
       type: 'flex-gap',
       selector: '.project-card-content',
-      expected: '8px',
+      expected: '20px',
     },
     {
-      name: 'Project card title font-size',
+      name: 'Project card title font-size (16 Sora SemiBold)',
       type: 'style',
       selector: '.project-card-title',
       property: 'fontSize',
-      expected: '20px',
+      expected: '16px',
     },
     {
       name: 'Project card title line-height',

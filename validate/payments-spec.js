@@ -201,7 +201,7 @@ const PAYMENTS_SPEC = {
       name: 'Role copy — exact',
       type: 'text-contains',
       selector: '.project-main',
-      expected: 'I led the experience design end to end, defining the problem, restructuring the IA, and working closely with Finance, Product, and Engineering.',
+      expected: 'I led the experience design end to end, defining the problem, restructuring the IA, and partnering with the PM and stakeholders to drive key product decisions.',
     },
 
     // ── STRATEGY ─────────────────────────────────────────────

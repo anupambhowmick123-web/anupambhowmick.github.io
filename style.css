@@ -27,8 +27,8 @@ html.light {
   --color-bg:           #F1EDEA;
   --color-dark-2:       #E0DBD6;
   --color-dark-3:       #D0CAC4;
-  --color-card-bg:      #E5E0DA;
-  --color-before-after: #E5E0DA;
+  --color-card-bg:      #EBE6E0;
+  --color-before-after: #EBE6E0;
   --color-video-bg:     #C8C3BC;
   --color-light-1:      #1A1A1A;
   --color-light-2:      #635D54;
@@ -570,30 +570,49 @@ body.onboarding .project-section > .cs-subsections { margin-top: 0; }
   color: var(--color-light-2);
 }
 
-/* Projects sub-section: "here are some" + cards (32px gap) */
+/* Projects sub-section (legacy: cards under work-section) */
 .projects-sub {
   display: flex; flex-direction: column; gap: 32px;
+}
+
+/* Projects section (new top-level section after Work at Xoxoday) */
+.projects-section {
+  display: flex; flex-direction: column;
+  gap: 44px;
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+.projects-header {
+  display: flex; flex-direction: column;
+  gap: 4px;
 }
 
 /* Project cards */
 .project-card {
   background: var(--color-card-bg);
   border-radius: 8px;
-  padding: 28px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  will-change: transform;
 }
-.project-card--lg { padding: 32px; }
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+html.light .project-card:hover {
+  box-shadow: 0 12px 28px rgba(8, 27, 45, 0.10);
+}
 .project-card:focus-visible {
   outline: 2px solid var(--color-light-1);
   outline-offset: 2px;
 }
 
 .project-card-content {
-  display: flex; flex-direction: column; gap: 8px;
+  display: flex; flex-direction: column; gap: 20px;
+  width: 100%;
 }
 
 /* Title + arrow row — arrow sits at the top-right of the card */
@@ -606,7 +625,8 @@ body.onboarding .project-section > .cs-subsections { margin-top: 0; }
 }
 
 .project-card-title {
-  font-size: 20px; font-weight: 600; line-height: 28px;
+  font-family: var(--font);
+  font-size: 16px; font-weight: 600; line-height: 28px;
   color: var(--color-light-1);
   flex: 1;
   min-width: 0;
@@ -884,7 +904,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* Hero image panel — overlapping screenshots */
 .cs-hero-panel {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   height: 260px;
   overflow: hidden;
@@ -999,7 +1019,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* DS Grid — left tall col + right 3-row col */
 .cs-ds-grid {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   padding: 16px;
   display: grid;
@@ -1028,7 +1048,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* Side-by-side image panel */
 .cs-panel-duo {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -1043,7 +1063,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* 3-image panel */
 .cs-panel-trio {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -1058,7 +1078,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* Single-image panel */
 .cs-panel-solo {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   overflow: hidden;
   padding: 12px;
@@ -1072,7 +1092,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* Key Moment — left narrow col + right wide col */
 .cs-panel-key {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -1100,7 +1120,7 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 
 /* Before / After workflow box */
 .cs-workflow-box {
-  background: #313131;
+  background: var(--color-dark-2);
   border-radius: 4px;
   padding: 28px 44px;
   display: flex; flex-direction: column; gap: 16px;

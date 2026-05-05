@@ -294,11 +294,11 @@ const AI_SYSTEM_SPEC = {
       expected: '8px',
     },
     {
-      name: 'Project card title font-size',
+      name: 'Project card title font-size (16 Sora SemiBold)',
       type: 'style',
       selector: '.project-card-title',
       property: 'fontSize',
-      expected: '20px',
+      expected: '16px',
     },
     {
       name: 'Project card body font-size (Source Serif Pro 18)',

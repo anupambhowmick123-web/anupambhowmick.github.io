@@ -3,7 +3,7 @@
    Source: Figma 8GEqwkx0ENInCieGuJe1gp
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=Source+Serif+Pro:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=Source+Serif+Pro:wght@400;600&display=swap');
 
 /* ── Design Tokens — Dark mode (default) ────────────────── */
 :root {
@@ -137,12 +137,12 @@ strong { font-weight: 600; color: var(--color-light-1); }
 .resume-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: var(--color-bg);
   z-index: 8000;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -153,9 +153,9 @@ strong { font-weight: 600; color: var(--color-light-1); }
 }
 .resume-modal-inner {
   background: var(--color-bg);
-  width: min(90vw, 840px);
-  height: min(90vh, 920px);
-  border-radius: 8px;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -525,9 +525,10 @@ body.onboarding .project-section > .cs-subsections { margin-top: 0; }
 }
 .bio-text p { margin-bottom: 0; }
 
-/* Inline highlight: light-1 color only (no underline — matches Figma) */
+/* Inline highlight: light-1 color + Source Serif Pro 600 (no underline) */
 .text-highlight {
   color: var(--color-light-1);
+  font-weight: 600;
 }
 
 /* Section: heading + content — gap 40px */
@@ -921,10 +922,10 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
 }
 .cs-sub-heading + ul { margin-top: 6px; }
 
-/* Inline highlight — white color only, no underline (matches Figma) */
+/* Inline highlight — light-1 colour + Source Serif Pro 600, no underline */
 .cs-link {
   color: var(--color-light-1);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 /* H2-size subsection heading (24px) */
@@ -1188,7 +1189,6 @@ html.light .video-placeholder-label { color: rgba(0,0,0,0.3); }
   .project-list     { gap: 48px; }
   .video-placeholder { height: 200px; }
   .before-after-block { padding: 20px; }
-  .resume-modal     { padding: 12px; }
   .resume-modal iframe { display: none; }
   .resume-mobile-fallback { display: flex; }
   .page-404-code    { font-size: 56px; }
